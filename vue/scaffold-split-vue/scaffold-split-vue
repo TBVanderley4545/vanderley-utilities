@@ -23,3 +23,5 @@ touch $TEMPLATEFILE $STYLEFILE
 printf "<template src='./${TEMPLATEFILE}' />\n<style src='./${STYLEFILE}' lang='${STYLELANG}' scoped />\n<script src='./${SCRIPTNAME}' />\n" >>index.vue
 
 printf "export default {};\n" >>${SCRIPTFILE}
+
+echo "New split Vue component - ${1} - has been scaffolded"
