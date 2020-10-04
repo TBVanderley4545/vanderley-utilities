@@ -1,11 +1,25 @@
 #!/bin/bash
 
+generate_file_name() {
+  echo $1.$2
+}
+
+TEMPLATENAME=template
+TEMPLATELANG=html
+TEMPLATEFILE=$(generate_file_name $TEMPLATENAME $TEMPLATELANG)
+
+STYLENAME=style
+STYLELANG=scss
+STYLEFILE=$(generate_file_name $STYLENAME $STYLELANG)
+
+SCRIPTNAME=script
+SCRIPTLANG=js
+SCRIPTFILE=$(generate_file_name $SCRIPTNAME $SCRIPTLANG)
+
 mkdir $1
 cd $1
-touch template.html style.scss
+touch $TEMPLATEFILE $STYLEFILE
 
-printf "<template src='./template.html' />\n<style src='./style.scss' lang='scss' scoped />\n<script src='./script' />\n" >> index.vue
+printf "<template src='./${TEMPLATEFILE}' />\n<style src='./${STYLEFILE}' lang='${STYLELANG}' scoped />\n<script src='./${SCRIPTNAME}' />\n" >>index.vue
 
-printf "export default {};\n" >> script.js
-
-echo "New split Vue component - ${1} - has been scaffolded"
+printf "export default {};\n" >>${SCRIPTFILE}
