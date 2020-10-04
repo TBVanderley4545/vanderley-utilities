@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir $1
+cd $1
+touch template.html style.scss
+
+printf "<template src='./template.html' />\n<style src='./style.scss' lang='scss' scoped />\n<script src='./script' />\n" >> index.vue
+
+printf "export default {};\n" >> script.js
+
+echo "New split Vue component - ${1} - has been scaffolded"
