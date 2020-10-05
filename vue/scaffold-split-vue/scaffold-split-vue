@@ -20,7 +20,7 @@ mkdir $1
 cd $1
 touch $TEMPLATEFILE $STYLEFILE
 
-printf "<template src='./${TEMPLATEFILE}' />\n<style src='./${STYLEFILE}' lang='${STYLELANG}' scoped />\n<script src='./${SCRIPTNAME}' />\n" >>index.vue
+printf "<template src=\"./${TEMPLATEFILE}\" />\n<style src=\"./${STYLEFILE}\" lang=\"${STYLELANG}\" scoped />\n<script src=\"./${SCRIPTNAME}\" />\n" >>index.vue
 
 printf "export default {};\n" >>${SCRIPTFILE}
 
